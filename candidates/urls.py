@@ -26,7 +26,6 @@ urlpatterns = \
         (r'^api/(?P<version>v0.9)/', include(api_router.urls)),
         (r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
         (r'^', include(settings.ELECTION_APP_FULLY_QUALIFIED + '.urls')),
-        (r'^search/', include('haystack.urls')),
     )
 
 patterns_to_format = [
@@ -204,6 +203,11 @@ patterns_to_format = [
         'pattern': r'^upcoming-elections',
         'view': views.UpcomingElectionsView.as_view(),
         'name': 'upcoming-elections'
+    },
+    {
+        'pattern': r'^search',
+        'view': views.PersonSearch.as_view(),
+        'name': 'person-search'
     }
 ]
 
