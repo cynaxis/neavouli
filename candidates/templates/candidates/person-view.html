@@ -203,6 +203,14 @@
         <dd>
           {% if extra_field.type == 'url' %}
             <a href="{{ extra_field.value }}" rel="nofollow">{{ extra_field.value }}</a>
+          {% elif extra_field.type == 'yesno' %}
+            {% if extra_field.value == 'yes' %}
+              {% trans "Yes" %}
+            {% elif extra_field.value == 'no' %}
+              {% trans "No" %}
+            {% elif extra_field.value == 'not-sure' %}
+              {% trans "Don't know" %}
+            {% endif %}
           {% else %}
             {{ extra_field.value }}
           {% endif %}
