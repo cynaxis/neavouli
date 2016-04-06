@@ -1,0 +1,19 @@
+{% extends 'generic_base.html' %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block menu_bar_links %}
+  <!-- <li class="nav-links__item"><a href="{% url 'help-about' %}">{% trans "About" %}</a></li>
+  <li class="nav-links__item"><a href="{% url 'posts' %}">{% trans "Posts" %}</a></li>
+  <li class="nav-links__item"><a href="{% url 'reports_home' %}">{% trans "Numbers" %}</a></li> -->
+{% endblock %}
+
+{% block footer_bylines %}
+  <!-- {% static "img/logo-with-text.png" as logo_url %}
+  <p>{% blocktrans with site_managers='Example Site Managers' trimmed %}
+    Run by
+    <img src="{{ logo_url }}" %} alt="{{ site_managers }}" class="dc-logo">
+    {% endblocktrans %}
+  </p> -->
+{% endblock %}

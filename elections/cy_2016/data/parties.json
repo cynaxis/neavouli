@@ -1,0 +1,50 @@
+[
+  {
+    "classification": "Party",
+    "id": "akel",
+    "name": "ΑΚΕΛ - Αριστερά - Νέες Δυνάμεις",
+    "slug": "akel"
+  },
+  {
+    "classification": "Party",
+    "id": "diko",
+    "name": "Δημοκρατικό Κόμμα",
+    "slug": "diko"
+  },
+  {
+    "classification": "Party",
+    "id": "disy",
+    "name": "Δημοκρατικός Συναγερμός",
+    "slug": "disy"
+  },
+  {
+    "classification": "Party",
+    "id": "edek",
+    "name": "Κίνημα Σοσιαλδημοκρατών ΕΔΕΚ",
+    "slug": "edek"
+  },
+  {
+    "classification": "Party",
+    "id": "oikologoi",
+    "name": "Κίνημα Οικολόγων - Συνεργασία Πολιτών",
+    "slug": "oikologoi"
+  },
+  {
+    "classification": "Party",
+    "id": "symmaxia",
+    "name": "Συμμαχία Πολιτών",
+    "slug": "symmaxia"
+  },
+  {
+    "classification": "Party",
+    "id": "allileggii",
+    "name": "Αλληλεγγύη",
+    "slug": "allileggii"
+  },
+  {
+    "classification": "Party",
+    "id": "elam",
+    "name": "Εθνικό Λαϊκό Μέτοπο",
+    "slug": "elam"
+  }
+]
