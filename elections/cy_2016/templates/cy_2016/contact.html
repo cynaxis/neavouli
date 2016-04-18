@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Επικοινωνία{% endblock %}
+
+{% block hero %}
+  <h1>Επικοινωνία</h1>
+{% endblock %}
+
+{% block content %}
+<p>
+  Μπορείτε να επικοινωνήσετε μαζί μας στην ηλεκτρονική διεύθυνση
+  <a href="mailto:{{ settings.SUPPORT_EMAIL }}">{{ settings.SUPPORT_EMAIL }}</a>.
+</p>
+{% endblock %}
