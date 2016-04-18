@@ -1,14 +1,15 @@
+
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import FormView, TemplateView
+from django.views.generic import FormView
 
 from candidates.views.mixins import ContributorsMixin
+from elections.models import Election
 
 from .forms import DistrictForm
-from ..models import Election
 
 
 class DistrictSelectorView(ContributorsMixin, FormView):
@@ -29,9 +30,7 @@ class DistrictSelectorView(ContributorsMixin, FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({
-           'top_users': self.get_leaderboards()[1]['rows'][:8],
-           'recent_actions': self.get_recent_changes_queryset()[:5],
-           'election_data': Election.objects.current().by_date().last()
-           })
+        context['top_users'] = self.get_leaderboards()[1]['rows'][:8]
+        context['recent_actions'] = self.get_recent_changes_queryset()[:5]
+        context['election_data'] = Election.objects.current().by_date().last()
         return context
