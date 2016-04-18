@@ -46,5 +46,17 @@
     "id": "elam",
     "name": "Εθνικό Λαϊκό Μέτοπο",
     "slug": "elam"
+  },
+  {
+    "classification": "Party",
+    "id": "apc",
+    "name": "Κόμμα για τα Ζώα Κύπρου",
+    "slug": "apc"
+  },
+  {
+    "classification": "Party",
+    "id": "simaia",
+    "name": "Κοινωνικό Κίνημα ΣΗΜΑΙΑ",
+    "slug": "simaia"
   }
 ]
