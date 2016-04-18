@@ -119,3 +119,11 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
     width: auto;
   }
 }
+
+.about-columns {
+  border-top: 1px solid $secondary-color;
+  border-bottom: 1px solid $secondary-color;
+  margin-bottom: 1em;
+  padding-top: 1em;
+}
+
