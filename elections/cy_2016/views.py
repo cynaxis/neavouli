@@ -35,7 +35,3 @@ class DistrictSelectorView(ContributorsMixin, FormView):
            'election_data': Election.objects.current().by_date().last()
            })
         return context
-
-
-class HelpAboutView(TemplateView):
-    template_name = 'cy_2016/about.html'
