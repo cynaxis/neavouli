@@ -127,8 +127,8 @@
       <dt>{% trans "Email" %}</dt>
       <dd>{% if person.email %}<a href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif %}</dd>
     {% endif %}
-    <dt>{% trans "Party" %}</dt>
-    <dd>{{ last_candidacy.on_behalf_of.name }}</dd>
+    <!-- <dt>{% trans "Party" %}</dt>
+    <dd>{{ last_candidacy.on_behalf_of.name }}</dd> -->
     {% if 'summary' in simple_fields %}
       <dt>{% trans "Summary" %}</dt>
       <dd>{% if person.summary %}{{ person.summary }}{% endif %}</dd>
