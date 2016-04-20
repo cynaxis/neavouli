@@ -10,7 +10,9 @@
 <p>
   Για παραλείψεις, λάθη, σχόλια, απορίες, ιδέες και οτιδήποτε άλλο σχετικό με
   την ιστοσελίδα μας μπορείτε να επικοινωνήσετε μαζί μας στην ηλεκτρονική διεύθυνση
-  <a href="mailto:{{ settings.SUPPORT_EMAIL }}">{{ settings.SUPPORT_EMAIL }}</a>.
+  <a href="mailto:{{ settings.SUPPORT_EMAIL }}">{{ settings.SUPPORT_EMAIL }}</a>
+  και μέσω του Twitter στο
+  <a href="https://twitter.com/{{ settings.TWITTER_USERNAME }}" rel="external">@{{ settings.TWITTER_USERNAME }}</a>.
 </p>
 
 <p>
@@ -18,6 +20,6 @@
   πληθοπορισμένα (crowd-sourced) και
   μπορεί να είναι ελλειπή ή να περιέχουν ανακρίβειες. Ωστόσο μπορείτε να
   συμβάλετε στη διόρθωση και ενημέρωσή τους εύκολα και γρήγορα με τη
-  <a href="{% url 'account_signup' %}">δημιουργία ενός λογαριασμού</a>.   
+  <a href="{% url 'account_signup' %}">δημιουργία ενός λογαριασμού</a>.
 </p>
 {% endblock %}
