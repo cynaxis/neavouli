@@ -127,3 +127,19 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
   padding-top: 1em;
 }
 
+
+
+%hide-text {
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav-links__item--twitter a {
+  @extend %hide-text;
+  display: inline-block;
+  width: 2em;
+  background-image: url("../img/twitter-icon.svg");
+  background-position: 50%;
+  background-size: contain;
+}
