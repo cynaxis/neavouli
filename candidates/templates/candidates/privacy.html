@@ -66,13 +66,15 @@ developers so that they can find out more about those
 candidates, their promises and policy positions.
 {% endblocktrans %}</p>
 
-<p>{% blocktrans trimmed %}
-We also use Google Analytics to aggregate and track data
-about usage of the site; you can
-use <a href="https://tools.google.com/dlpage/gaoptout/">a
-browser plugin to opt out of having data collected by Google
-Analytics</a>.
-{% endblocktrans %}</p>
+{% if settings.GOOGLE_ANALYTICS_ACCOUNT %}
+  <p>{% blocktrans trimmed %}
+  We also use Google Analytics to aggregate and track data
+  about usage of the site; you can
+  use <a href="https://tools.google.com/dlpage/gaoptout/">a
+  browser plugin to opt out of having data collected by Google
+  Analytics</a>.
+  {% endblocktrans %}</p>
+{% endif %}
 
 </div>
 
