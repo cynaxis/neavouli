@@ -144,3 +144,11 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+
+.incomplete-notice {
+  @extend .panel, .callout;
+  margin-top: -1rem;
+  border: none;
+  font-size: 1.5em;
+}

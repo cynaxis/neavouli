@@ -71,6 +71,12 @@
 
     <div class="header__masthead">
       <div class="container">
+        <div class="incomplete-notice">
+          Η βάση δεδομένων
+          <a href="{% url 'reports_home' %}"><strong>ενημερώνεται συνεχώς</strong></a>
+          αλλά δεν έχουν ακόμη καταχωρηθεί όλοι οι υποψήφιοι·
+          συνεισφέρετε <a href="{% url 'account_signup' %}">προσθέτοντάς</a> τους.
+        </div>
         <a href="/" class="header__masthead__logo">{{ site.name }}</a>
         <ul class="nav-links">
           {% if user.is_authenticated %}
