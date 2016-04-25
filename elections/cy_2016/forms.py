@@ -10,6 +10,6 @@ from popolo.models import Area
 
 class DistrictForm(forms.Form):
     district = forms.ChoiceField(
-        label='Επέλεξε εκλογική περιφέρεια',
+        label='Επίλεξε εκλογική περιφέρεια',
         choices=sorted(((area.identifier, area.name)
                         for area in Area.objects.all()), key=lambda i: i[1]))
