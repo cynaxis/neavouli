@@ -17,7 +17,31 @@ from django.utils.translation import ugettext_lazy as _
 from candidates.models import (
     PartySet, parse_approximate_date, ExtraField, SimplePopoloField, ComplexPopoloField
 )
-from popolo.models import Organization, Post
+from popolo.models import Organization, OtherName, Post
+from .twitter_api import get_twitter_user_id, TwitterAPITokenMissing
+
+if django_version[:2] < (1, 9):
+    class StrippedCharField(forms.CharField):
+        """A backport of the Django 1.9 ``CharField`` ``strip`` option.
+
+        If ``strip`` is ``True`` (the default), leading and trailing
+        whitespace is removed.
+        """
+
+        def __init__(self, max_length=None, min_length=None, strip=True,
+                     *args, **kwargs):
+            self.strip = strip
+            super(StrippedCharField, self).__init__(max_length, min_length,
+                                                    *args, **kwargs)
+
+        def to_python(self, value):
+            value = super(StrippedCharField, self).to_python(value)
+            if self.strip:
+                value = value.strip()
+            return value
+else:
+    StrippedCharField = forms.CharField
+
 
 
 if django_version[:2] < (1, 9):
@@ -192,6 +216,17 @@ class BasePersonForm(forms.Form):
         if not re.search(r'^\w*$', username):
             message = _("The Twitter username must only consist of alphanumeric characters or underscore")
             raise ValidationError(message)
+        if username:
+            try:
+                user_id = get_twitter_user_id(username)
+                if not user_id:
+                    message = _("The Twitter account {screen_name} doesn't exist")
+                    raise ValidationError(message.format(screen_name=username))
+            except TwitterAPITokenMissing:
+                # If there's no API token, we can't check the screen name,
+                # but don't fail validation because the site owners
+                # haven't set that up.
+                return username
         return username
 
     def check_party_and_constituency_are_selected(self, cleaned_data):
@@ -494,5 +529,24 @@ class ConstituencyRecordWinnerForm(forms.Form):
     )
     source = StrippedCharField(
         label=_("Source of information that they won"),
+        max_length=512,
+    )
+
+
+class OtherNameForm(forms.ModelForm):
+    class Meta:
+        model = OtherName
+        fields = ('name', 'note', 'start_date', 'end_date')
+        labels = {
+        }
+        help_texts = {
+            'start_date': _('(Optional) The date from which this name would be used'),
+            'end_date': _('(Optional) The date when this name stopped being used'),
+        }
+    source = StrippedCharField(
+        label=_("Source"),
+        help_text=_(
+            "Please indicate how you know that this is a valid alternative name"
+        ),
         max_length=512,
     )

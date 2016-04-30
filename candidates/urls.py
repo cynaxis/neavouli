@@ -24,6 +24,7 @@ api_router.register(r'memberships', views.MembershipViewSet)
 api_router.register(r'logged_actions', views.LoggedActionViewSet)
 api_router.register(r'extra_fields', views.ExtraFieldViewSet)
 api_router.register(r'simple_fields', views.SimplePopoloFieldViewSet)
+api_router.register(r'complex_fields', views.ComplexPopoloFieldViewSet)
 
 urlpatterns = \
     patterns('',
@@ -127,6 +128,26 @@ patterns_to_format = [
         'pattern': r'^person/(?P<person_id>\d+)/merge$',
         'view': views.MergePeopleView.as_view(),
         'name': 'person-merge'
+    },
+    {
+        'pattern': r'^person/(?P<person_id>\d+)/other-names$',
+        'view': views.PersonOtherNamesView.as_view(),
+        'name': 'person-other-names',
+    },
+    {
+        'pattern': r'^person/(?P<person_id>\d+)/other-names/create$',
+        'view': views.PersonOtherNameCreateView.as_view(),
+        'name': 'person-other-name-create',
+    },
+    {
+        'pattern': r'^person/(?P<person_id>\d+)/other-name/(?P<pk>\d+)/delete$',
+        'view': views.PersonOtherNameDeleteView.as_view(),
+        'name': 'person-other-name-delete',
+    },
+    {
+        'pattern': r'^person/(?P<person_id>\d+)/other-name/(?P<pk>\d+)/update$',
+        'view': views.PersonOtherNameUpdateView.as_view(),
+        'name': 'person-other-name-update',
     },
     {
         'pattern': r'^person/(?P<person_id>\d+)(?:/(?P<ignored_slug>.*))?$',
