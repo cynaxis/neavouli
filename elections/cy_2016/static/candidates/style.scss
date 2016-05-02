@@ -135,14 +135,26 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
   overflow: hidden;
 }
 
+.nav-links__item--facebook a,
 .nav-links__item--twitter a {
   @extend %hide-text;
   display: inline-block;
   width: 2em;
-  background-image: url("../img/twitter-icon.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.nav-links__item--facebook {
+  padding-left: 0;
+
+  a {
+    background-image: url("../img/facebook-icon.svg");
+  }
+}
+
+.nav-links__item--twitter a {
+  background-image: url("../img/twitter-icon.svg");
 }
 
 
