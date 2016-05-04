@@ -164,3 +164,59 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
   border: none;
   font-size: 1.5em;
 }
+
+
+.detailed-party-list {
+  @media #{$medium-up} {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 2em;
+    -moz-column-gap: 2em;
+    column-gap: 2em;
+  }
+
+  &__post {
+    // We can't prevent breaking after the heading/before the list 'cause of
+    // browser support, so we've got to prevent breaking inside the whole list,
+    // inelegant as it might be
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  ul {
+    margin-left: 0;
+    list-style-type: none;
+  }
+}
+
+.detailed-party-person {
+  overflow: hidden;
+
+  & + & {
+    margin-top: 2px;
+  }
+
+  > ul {
+    line-height: 1.75em;
+  }
+
+  &__name {
+
+  }
+
+  &__position {
+    float: left;
+    width: 1.75em;
+    margin-right: 0.5em;
+    background-color: $candidate-order-background-color;
+    color: $candidate-order-color;
+    text-align: center;
+
+    span {
+      font-size: 0.7em;
+      font-weight: bold;
+    }
+  }
+}

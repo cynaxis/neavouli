@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load thumbnail %}
+
+{% block body_class %}party{% endblock %}
+
+{% block title %}{% blocktrans with election_name=election_data.name %}{{ party_name }} &#8212; Candidates by constituency for the {{ election_name }}{% endblocktrans %}{% endblock %}
+
+{% block hero %}
+  <h1>{% blocktrans trimmed with election_name=election_data.name %}
+    {{ party_name }} candidates in the {{ election_name }}
+  {% endblocktrans %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="party__primary">
+
+  {% if party_name == 'Independent' %}
+
+    <p>{% blocktrans trimmed with election_name=election_data.name %}This shows
+      all the constituencies that have independent candidates standing in them
+      at the {{ election_name }}{% endblocktrans %}</p>
+
+  {% elif party_name == 'Speaker seeking re-election' %}
+
+    <p>{% blocktrans trimmed %}The Speaker of the House of Commons stands as a "The
+      Speaker seeking re-election" rather than a particular party
+      at a general election; for more information, please
+      see <a href="http://www.parliament.uk/about/faqs/house-of-commons-faqs/speakers-election/">Parliament's
+      website</a>.{% endblocktrans %}</p>
+
+  {% elif register %}
+
+    <p>{% blocktrans %}{{ party_name }} is on the Electoral Commission's register for {{ register }}.{% endblocktrans %}</p>
+
+    <p>{% blocktrans trimmed %}You can find more data about the party's registration at the
+      <a href="{{ ec_url }}">Electoral Commission page for {{ party_name }}</a>.{% endblocktrans %}</p>
+    <p></p>
+
+  {% endif %}
+
+  {% for post_group, post_group_data in candidates_by_post_group %}
+    {% with stats=post_group_data.stats posts_with_memberships=post_group_data.posts_with_memberships %}
+      {% if post_group %}
+        <h3>{{ post_group }}</h3>
+      {% endif %}
+      {% if stats.candidates > 0 %}
+        <div class="detailed-party-list">
+          {% for post, post_members in posts_with_memberships %}
+            <section class="detailed-party-list__post">
+              <h4>{{ post.extra.short_label }}</h4>
+              {% if post_members %}
+                <ul>
+                  {% if election_data.party_lists_in_use %}
+                    {% for member_data in post_members|dictsort:"membership.extra.party_list_position" %}
+                      <li class="detailed-party-person">
+                        <ul>
+                          <li class="detailed-party-person__position"><span>{{ member_data.membership.extra.party_list_position }}</span></li>
+                          <li class="detailed-party-person__name"><a href="{% url 'person-view' person_id=member_data.person.id %}">{{ member_data.person.name }}</a></li>
+                        </ul>
+                      </li>
+                    {% endfor %}
+                  {% else %}
+                    {% for member_data in post_members %}
+                      <li><a href="{% url 'person-view' person_id=member_data.person.id %}">{{ member_data.person.name }}</a></li>
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              {% else %}
+                {% if stats.show_all %}
+                  {% url 'constituency' election=election post_id=post.extra.slug ignored_slug=post.extra.short_label|slugify as post_url %}
+                  <p>{% blocktrans trimmed with post_short_label=post.extra.short_label %}
+                    No candidate in <a href="{{ post_url }}">{{ post_short_label }}</a>
+                  {% endblocktrans %}</p>
+                {% endif %}
+              {% endif %}
+            </section>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>{% blocktrans with election_name=election_data.name %}We don't know of any {{ party_name }} candidates in {{ post_group }} in the {{ election_name }} so far.{% endblocktrans %}</p>
+      {% endif %}
+    {% endwith %}
+  {% endfor %}
+
+</div>
+
+<div class="party__secondary">
+  {% for image in emblems %}
+    {% thumbnail image.image "240" as im %}
+      <img class="party-detail__image" src="{{ im.url }}"
+           title="{{ image.extra.notes }}" alt="{{ image.extra.notes }}">
+    {% endthumbnail %}
+  {% endfor %}
+</div>
+
+{% endblock %}
