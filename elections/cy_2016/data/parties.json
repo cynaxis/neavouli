@@ -2,61 +2,56 @@
   {
     "classification": "Party",
     "id": "akel",
-    "name": "ΑΚΕΛ - Αριστερά - Νέες Δυνάμεις",
-    "slug": "akel"
+    "name": "ΑΚΕΛ - Αριστερά - Νέες Δυνάμεις"
   },
   {
     "classification": "Party",
     "id": "diko",
-    "name": "Δημοκρατικό Κόμμα",
-    "slug": "diko"
+    "name": "Δημοκρατικό Κόμμα"
   },
   {
     "classification": "Party",
     "id": "disy",
-    "name": "Δημοκρατικός Συναγερμός",
-    "slug": "disy"
+    "name": "Δημοκρατικός Συναγερμός"
   },
   {
     "classification": "Party",
     "id": "edek",
-    "name": "Κίνημα Σοσιαλδημοκρατών ΕΔΕΚ",
-    "slug": "edek"
+    "name": "Κίνημα Σοσιαλδημοκρατών ΕΔΕΚ"
   },
   {
     "classification": "Party",
     "id": "oikologoi",
-    "name": "Κίνημα Οικολόγων - Συνεργασία Πολιτών",
-    "slug": "oikologoi"
+    "name": "Κίνημα Οικολόγων - Συνεργασία Πολιτών"
   },
   {
     "classification": "Party",
     "id": "symmachia",
-    "name": "Συμμαχία Πολιτών",
-    "slug": "symmachia"
+    "name": "Συμμαχία Πολιτών"
   },
   {
     "classification": "Party",
-    "id": "allileggii",
-    "name": "Αλληλεγγύη",
-    "slug": "allileggii"
+    "id": "allilengyi",
+    "name": "Αλληλεγγύη"
   },
   {
     "classification": "Party",
     "id": "elam",
-    "name": "Εθνικό Λαϊκό Μέτωπο",
-    "slug": "elam"
+    "name": "Εθνικό Λαϊκό Μέτωπο"
   },
   {
     "classification": "Party",
     "id": "apc",
-    "name": "Κόμμα για τα Ζώα Κύπρου",
-    "slug": "apc"
+    "name": "Κόμμα για τα Ζώα Κύπρου"
   },
   {
     "classification": "Party",
     "id": "simaia",
-    "name": "Κοινωνικό Κίνημα ΣΗΜΑΙΑ",
-    "slug": "simaia"
+    "name": "Κοινωνικό Κίνημα ΣΗΜΑΙΑ"
+  },
+  {
+    "classification": "Party",
+    "id": "independent",
+    "name": "Ανεξάρτητος υποψήφιος"
   }
 ]
