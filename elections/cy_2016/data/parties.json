@@ -51,6 +51,21 @@
   },
   {
     "classification": "Party",
+    "id": "pnoi-laou",
+    "name": "Πνοή Λαού"
+  },
+  {
+    "classification": "Party",
+    "id": "oad",
+    "name": "Οργάνωση Αγωνιστών Δικαιοσύνης"
+  },
+  {
+    "classification": "Party",
+    "id": "oad",
+    "name": "Όλοι Στον Αγώνα"
+  },
+  {
+    "classification": "Party",
     "id": "independent",
     "name": "Ανεξάρτητος υποψήφιος"
   }
