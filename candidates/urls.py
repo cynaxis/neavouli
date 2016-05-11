@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
 
@@ -20,18 +20,18 @@ api_router.register(r'area_types', views.AreaTypeViewSet)
 api_router.register(r'elections', views.ElectionViewSet)
 api_router.register(r'party_sets', views.PartySetViewSet)
 api_router.register(r'images', views.ImageViewSet)
+api_router.register(r'post_elections', views.PostExtraElectionViewSet)
 api_router.register(r'memberships', views.MembershipViewSet)
 api_router.register(r'logged_actions', views.LoggedActionViewSet)
 api_router.register(r'extra_fields', views.ExtraFieldViewSet)
 api_router.register(r'simple_fields', views.SimplePopoloFieldViewSet)
 api_router.register(r'complex_fields', views.ComplexPopoloFieldViewSet)
 
-urlpatterns = \
-    patterns('',
-        (r'^api/(?P<version>v0.9)/', include(api_router.urls)),
-        (r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-        (r'^', include(settings.ELECTION_APP_FULLY_QUALIFIED + '.urls')),
-    )
+urlpatterns = [
+    url(r'^api/(?P<version>v0.9)/', include(api_router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^', include(settings.ELECTION_APP_FULLY_QUALIFIED + '.urls')),
+]
 
 patterns_to_format = [
     {
@@ -198,6 +198,11 @@ patterns_to_format = [
         'pattern': r'^help/api$',
         'view': views.HelpApiView.as_view(),
         'name': 'help-api'
+    },
+    {
+        'pattern': r'^help/results$',
+        'view': views.HelpResultsView.as_view(),
+        'name': 'help-results'
     },
     {
         'pattern': r'^help/about$',

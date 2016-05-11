@@ -18,17 +18,20 @@ The data that's submitted to this site is available as a CSV/Excel download and
 programmatically via a RESTful API.
 {% endblocktrans %}</p>
 
+<h2>{% trans "Election results" %}</h2>
+
+<p>{% blocktrans trimmed %}
+There is <a href="{{ help_results_url }}">a separate page
+explaining how to get election results from this site</a>.
+{% endblocktrans %}</p>
+
 <h2>{% trans "CSV/Excel Download" %}</h2>
 
   <h3>{% trans "All Candidates" %}</h3>
 
   <p>{% blocktrans trimmed %}
     This CSV file contains details of all candidates in the
-    database.{% endblocktrans %}
-    {% blocktrans trimmed %}(Please note that if the candidate
-    is standing in multiple elections, currently this
-    file <a href="https://github.com/mysociety/yournextrepresentative/issues/891">only
-    shows details of one of their candidacies.</a>)
+    database.
   {% endblocktrans %}</p>
 
   <ul>
