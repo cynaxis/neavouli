@@ -1,6 +1,34 @@
 {% extends 'candidates/frontpage.html' %}
 
+{% load absolute %}
 {% load i18n %}
+{% load metadescription %}
+
+{% block extra_head %}
+  <meta name="description" content="Βρες τους υποψήφιους των βουλευτικών εκλογών της 22ας Μαΐου 2016 στην Κύπρο" />
+
+  <!-- Open Graph and Twitter card data -->
+  <meta property="og:url" name="twitter:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:title" name="twitter:title" content="{{ site.name }}" />
+  <meta property="og:description" name="twitter:description" content="{{ site.name }} - {% blocktrans with election_name=election_data.name %}{{ election_name }} candidates{% endblocktrans %}">
+
+  <!-- Open Graph data -->
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+  <meta property="og:image:height" content="80" />
+  <meta property="og:image:width" content="80" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+  <meta property="og:locale" content="{{ LOCALE }}" />
+
+  <!-- Twitter card data -->
+  <meta name="twitter:card" content="summary" />
+  {% if settings.TWITTER_USERNAME %}
+    <meta name="twitter:site" content="@{{ settings.TWITTER_USERNAME }}" />
+  {% endif %}
+  <meta property="twitter:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+  <meta property="twitter:image:height" content="120" />
+  <meta property="twitter:image:width" content="120" />
+{% endblock %}
 
 {% block hero %}
   <h1>Βρες τους υποψήφιους των εκλογών του Μαΐου</h1>
