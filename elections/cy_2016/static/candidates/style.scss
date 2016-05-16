@@ -120,13 +120,13 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
   }
 }
 
+
 .about-columns {
   border-top: 1px solid $secondary-color;
   border-bottom: 1px solid $secondary-color;
   margin-bottom: 1em;
   padding-top: 1em;
 }
-
 
 
 %hide-text {
@@ -155,14 +155,6 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
 
 .nav-links__item--twitter a {
   background-image: url("../img/twitter-icon.svg");
-}
-
-
-.incomplete-notice {
-  @extend .panel, .callout;
-  margin-top: -1rem;
-  border: none;
-  font-size: 1.5em;
 }
 
 
