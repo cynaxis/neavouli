@@ -80,6 +80,7 @@
             {% endif %}
             <li class="nav-links__item"><a href="{% url 'account_logout' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}">{% trans "Sign out" %}</a></li>
           {% else %}
+            <li class="nav-links__item"><a href="{% url 'account_signup' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}" class="header__nav__login">Εγγραφείτε</a></li>
             <li class="nav-links__item"><a href="{% url 'account_login' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}" class="header__nav__login">{% trans "Sign in to edit" %}</a></li>
           {% endif %}
         </ul>
